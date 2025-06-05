@@ -60,13 +60,7 @@
             position: relative;
         }
         
-        .logo::after {
-            content: 'ⓒ';
-            font-size: 0.6em;
-            vertical-align: super;
-            margin-left: 2px;
-        }
-        
+
         .nav-link {
             position: relative;
         }
@@ -256,7 +250,75 @@
              font-size: 200%;
             }
         }
+         .floating-logo {
+           animation: floatY 3s ease-in-out infinite;
+          display: block;
+        }
+         .floating-logo:nth-child(even) {
+           animation-delay: 1.5s;
+        }
+         @keyframes floatY {
+           0% { transform: translateY(0); }
+           50% { transform: translateY(-18px); }
+           100% { transform: translateY(0); }
+        }
+        @keyframes moveRight {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(100%); }
+        }
+        @keyframes moveLeft {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-100%); }
+        }
+        .animate-move-right {
+          animation: moveRight 10s linear infinite;
+        }
+        .animate-move-left {
+          animation: moveLeft 12s linear infinite;
+        }
+        .client-box {
+          width: 200px;
+          height: 100px;
+          background: #3a4251;
+          border-radius: 8px;
+          margin-right: 24px;
+        }
+        .client-box:last-child { margin-right: 0; }
 
+        .client-box-large {
+          width: 400px;
+          height: 225px;
+          background: #3a4251;
+          border-radius: 8px;
+          margin-right: 32px;
+        }
+        .client-box-large:last-child { margin-right: 0; }
+
+        @keyframes moveRightNoGap {
+          0% { transform: translateX(-50%); }
+          100% { transform: translateX(0); }
+        }
+        @keyframes moveLeftNoGap {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .animate-move-right-no-gap {
+          animation: moveRightNoGap 20s linear infinite;
+        }
+        .animate-move-left-no-gap {
+          animation: moveLeftNoGap 24s linear infinite;
+        }
+        .comparison-table td.techsense,
+        .comparison-table th.techsense {
+          background: none;
+          color: #fff;
+          font-weight: 700;
+          font-size: 1.25em;
+          text-align: center;
+        }
+        .comparison-table th.techsense {
+          font-size: 1.375em;
+        }
     </style>
 </head>
 <body>
@@ -266,9 +328,6 @@
     <nav class="fixed w-full z-50 transition-all duration-300 bg-black bg-opacity-80 backdrop-filter backdrop-blur-sm">
         <div class="container mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
-                <div class="text-2xl font-bold text-white logo flex items-center">
-                    <img src="https://i.postimg.cc/YjcbRsRn/N8515.png" alt="TECHSENSE Logo" class="h-6 mr-2">
-                    <span>TECHSENSE<sup></sup></span></div>
                 <div class="hidden md:flex space-x-8">
                     <a href="#home" class="nav-link text-white hover:text-accent">Home</a>
                     <a href="#interface" class="nav-link text-white hover:text-accent">Interface</a>
@@ -286,26 +345,29 @@
     </nav>
     
 <!-- Hero Section -->
-<section id="home" class="hero-section flex items-center justify-center relative">
+<section id="home" class="hero-section flex flex-col justify-start items-center relative" style="padding-top: 120px; min-height: 100vh;">
     <div id="particles-js"></div>
     <div class="hero-content container mx-auto px-6 text-center">
-        <img src="https://i.postimg.cc/YjcbRsRn/N8515.png" alt="TECHSENSE Logo" class="mx-auto mb-4" style="height: 120px;">
-        <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-on-scroll">
-            <span style="font-size: 50%;">Experience the Power of <span class="highlight">Data</span></span> 
-            <span class="logo text-techsense">TECHSENSE</span>
-        </h1>        
-        <p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto animate-on-scroll" style="transition-delay: 0.2s;">
+        <h1 class="text-3xl md:text-4xl font-bold mb-6 animate-on-scroll">
+            <span style="font-size: 80%;">Experience the Power of <span class="highlight">Data</span></span>
+            <span class="flex items-center justify-center w-full mt-2" style="gap: 0.5em;">
+                <img src="https://i.postimg.cc/YjcbRsRn/N8515.png" alt="TECHSENSE Logo" style="height: 60px; width: auto; display: inline-block; vertical-align: middle;" />
+                <span class="logo text-techsense" style="font-size: 2.5rem;">TECHSENSE<sup style="font-size: 1.2rem; vertical-align: super;">ⓒ</sup></span>
+            </span>
+        </h1>
+        <p class="text-base md:text-lg text-gray-300 mb-12 max-w-3xl mx-auto animate-on-scroll" style="transition-delay: 0.2s; font-size: 100%;">
             Precision data control and acquisition solutions for the modern era
         </p>
-
-
-            <div class="mt-16 flex justify-center space-x-8 md:space-x-16 animate-on-scroll" style="transition-delay: 0.6s;">
-                <img src="https://mlegimnpy7qi.i.optimole.com/w:auto/h:auto/q:mauto/f:best/ig:avif/https://www.softwarekey.com/wp-content/uploads/2015/05/labview-logo.png" class="tech-icon w-22 h-12 md:w-18 md:h-16" alt="LabVIEW" />
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="tech-icon w-12 h-12 md:w-16 md:h-16" alt="Python" />
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/512px-Amazon_Web_Services_Logo.svg.png" class="tech-icon w-20 h-12 md:w-18 md:h-16" alt="AWS" />
-            </div>
+        <!-- 무한 재생 GIF 삽입 -->
+        <img src="https://i.postimg.cc/m2RcqcVD/GIF.gif" alt="Infinite Animation GIF" style="display:block; margin: 3rem auto; max-width: 1100px; width: 90vw; height: auto;" />
+        <!-- 기술 아이콘 3개 (2/3 크기) -->
+        <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; margin: 2.5rem auto 0 auto; max-width: 600px;">
+            <img src="https://mlegimnpy7qi.i.optimole.com/w:auto/h:auto/q:mauto/f:best/ig:avif/https://www.softwarekey.com/wp-content/uploads/2015/05/labview-logo.png" style="height: 46px; width: auto;" alt="LabVIEW" />
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" style="height: 46px; width: auto;" alt="Python" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/512px-Amazon_Web_Services_Logo.svg.png" style="height: 46px; width: auto;" alt="AWS" />
         </div>
-    </section>
+    </div>
+</section>
     
     <!-- Interface Showcase -->
     <section id="interface" class="py-20 bg-gradient-to-b from-black to-gray-900">
@@ -642,145 +704,67 @@
                     <thead>
                         <tr class="text-left border-b border-gray-700">
                             <th class="pb-4 text-xl">Feature</th>
-                            <th class="pb-4 text-xl text-center">TECHSENSE</th>
+                            <th class="pb-4 text-xl text-center techsense">TECHSENSE</th>
                             <th class="pb-4 text-xl text-center">Competitors</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td class="font-bold">Price</td>
-                            <td class="text-center text-accent font-bold">$180</td>
-                            <td class="text-center text-gray-400">$300+</td>
+                            <td class="techsense">$1800</td>
+                            <td class="text-center text-gray-400">$3000+</td>
                         </tr>
                         <tr>
                             <td class="font-bold">Production Period</td>
-                            <td class="text-center text-accent font-bold">2 Weeks</td>
+                            <td class="techsense">2 Weeks</td>
                             <td class="text-center text-gray-400">1 Month</td>
                         </tr>
                         <tr>
                             <td class="font-bold">Modification Services</td>
-                            <td class="text-center text-accent font-bold">No Additional Cost</td>
+                            <td class="techsense">No Additional Cost</td>
                             <td class="text-center text-gray-400">Extra Charges Apply</td>
                         </tr>
                         <tr>
                             <td class="font-bold">Support Response</td>
-                            <td class="text-center text-accent font-bold">24 Hours</td>
+                            <td class="techsense">24 Hours</td>
                             <td class="text-center text-gray-400">3-5 Business Days</td>
                         </tr>
                         <tr>
                             <td class="font-bold">Software Updates</td>
-                            <td class="text-center text-accent font-bold">Lifetime Included</td>
+                            <td class="techsense">Lifetime Included</td>
                             <td class="text-center text-gray-400">Annual Maintenance Fee</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            
-            <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center animate-on-scroll">
-                <div>
-                    <h3 class="text-2xl font-bold mb-4">Smart Choice</h3>
-                    <p class="text-xl text-accent mb-6">Why do many choose us?</p>
-                    <p class="text-gray-400 mb-8">
-                        Our customers benefit from our relentless focus on efficiency, performance, and cost-effectiveness. 
-                        We eliminate unnecessary complexity to deliver exactly what you need - nothing more, nothing less.
-                    </p>
-                    
-                    <div class="space-y-4">
-                        <div class="flex items-start">
-                            <div class="text-accent mr-4 mt-1">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                            </div>
-                            <div>
-                                <h4 class="font-bold">Guaranteed Service Updates</h4>
-                                <p class="text-gray-400">Continuous improvements at no extra cost</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start">
-                            <div class="text-accent mr-4 mt-1">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                            </div>
-                            <div>
-                                <h4 class="font-bold">Lower Prices</h4>
-                                <p class="text-gray-400">40% more affordable than competitors</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start">
-                            <div class="text-accent mr-4 mt-1">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                            </div>
-                            <div>
-                                <h4 class="font-bold">24/7 Support</h4>
-                                <p class="text-gray-400">Expert assistance whenever you need it</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bg-gray-800 rounded-xl p-8">
-                    <div class="flex items-center mb-6">
-                        <div class="w-3 h-3 rounded-full bg-red-500 mr-2"></div>
-                        <div class="w-3 h-3 rounded-full bg-yellow-500 mr-2"></div>
-                        <div class="w-3 h-3 rounded-full bg-green-500 mr-4"></div>
-                        <div class="text-sm code-font text-gray-400">cost-comparison.techsense</div>
-                    </div>
-                    
-                    <div class="mb-8">
-                        <h4 class="text-lg font-bold mb-2">5-Year Total Cost of Ownership</h4>
-                        <div class="flex items-center justify-between mb-1">
-                            <span class="text-gray-400">TECHSENSE</span>
-                            <span class="text-accent font-bold">$900</span>
-                        </div>
-                        <div class="w-full bg-gray-700 rounded-full h-3 mb-4">
-                            <div class="bg-accent h-3 rounded-full" style="width: 40%"></div>
-                        </div>
-                        
-                        <div class="flex items-center justify-between mb-1">
-                            <span class="text-gray-400">Competitor A</span>
-                            <span class="text-gray-400">$2,100</span>
-                        </div>
-                        <div class="w-full bg-gray-700 rounded-full h-3 mb-4">
-                            <div class="bg-blue-500 h-3 rounded-full" style="width: 93%"></div>
-                        </div>
-                        
-                        <div class="flex items-center justify-between mb-1">
-                            <span class="text-gray-400">Competitor B</span>
-                            <span class="text-gray-400">$1,800</span>
-                        </div>
-                        <div class="w-full bg-gray-700 rounded-full h-3">
-                            <div class="bg-purple-500 h-3 rounded-full" style="width: 80%"></div>
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <h4 class="text-lg font-bold mb-4">Key Savings Areas</h4>
-                        <div class="grid grid-cols-2 gap-4">
-                            <div class="bg-gray-900 p-4 rounded-lg">
-                                <div class="text-accent text-2xl font-bold mb-1">60%</div>
-                                <div class="text-gray-400 text-sm">Software Updates</div>
-                            </div>
-                            <div class="bg-gray-900 p-4 rounded-lg">
-                                <div class="text-accent text-2xl font-bold mb-1">75%</div>
-                                <div class="text-gray-400 text-sm">Maintenance</div>
-                            </div>
-                            <div class="bg-gray-900 p-4 rounded-lg">
-                                <div class="text-accent text-2xl font-bold mb-1">90%</div>
-                                <div class="text-gray-400 text-sm">Training</div>
-                            </div>
-                            <div class="bg-gray-900 p-4 rounded-lg">
-                                <div class="text-accent text-2xl font-bold mb-1">50%</div>
-                                <div class="text-gray-400 text-sm">Hardware</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <!-- Partners Section -->
+            <div class="w-full max-w-none px-6">
+              <div class="mt-16 py-12 bg-white rounded-xl animate-on-scroll">
+                 <h3 class="text-2xl font-bold mb-8 text-center" style="color:#000;">Clients</h3>
+                 <!-- 첫 번째 줄: 오른쪽 이동(실제로는 row-reverse + 왼쪽 이동) -->
+                 <div class="overflow-hidden mb-8" style="width:100%; position:relative;">
+                   <div class="flex animate-move-right-no-gap" style="width: max-content; gap: 24px;">
+                     <div class="client-box" style="background:none;display:flex;align-items:center;justify-content:center;padding:0;"><img src="https://i.postimg.cc/W1skD5yT/22.png" alt="client1" style="max-width:90%;max-height:90%;object-fit:contain;"/></div>
+                     <div class="client-box" style="background:none;display:flex;align-items:center;justify-content:center;padding:0;"><img src="https://i.postimg.cc/LsXgDnRW/21.png" alt="client2" style="max-width:90%;max-height:90%;object-fit:contain;"/></div>
+                     <div class="client-box" style="background:none;display:flex;align-items:center;justify-content:center;padding:0;"><img src="https://i.postimg.cc/fyxVydjV/15.png" alt="client3" style="max-width:90%;max-height:90%;object-fit:contain;"/></div>
+                     <div class="client-box" style="background:none;display:flex;align-items:center;justify-content:center;padding:0;"><img src="https://i.postimg.cc/sDrB8ns7/23.png" alt="client4" style="max-width:90%;max-height:90%;object-fit:contain;"/></div>
+                     <div class="client-box" style="background:none;display:flex;align-items:center;justify-content:center;padding:0;"><img src="https://i.postimg.cc/MpZnZvcG/20.png" alt="client5" style="max-width:90%;max-height:90%;object-fit:contain;"/></div>
+                     <div class="client-box" style="background:none;display:flex;align-items:center;justify-content:center;padding:0;"><img src="https://i.postimg.cc/0NbrmF0R/19.png" alt="client6" style="max-width:90%;max-height:90%;object-fit:contain;"/></div>
+                     <div class="client-box" style="background:none;display:flex;align-items:center;justify-content:center;padding:0;"><img src="https://i.postimg.cc/FzQKMR5N/18.png" alt="client7" style="max-width:90%;max-height:90%;object-fit:contain;"/></div>
+                     <div class="client-box" style="background:none;display:flex;align-items:center;justify-content:center;padding:0;"><img src="https://i.postimg.cc/BQ46NXBC/17.png" alt="client8" style="max-width:90%;max-height:90%;object-fit:contain;"/></div>
+                   </div>
+                 </div>
+                 <!-- 두 번째 줄: 왼쪽 이동, 4:3 비율, 크기 400x225 -->
+                 <div class="overflow-hidden" style="width:100%; position:relative;">
+                   <div class="flex animate-move-left-no-gap" style="width: max-content; gap: 32px;">
+                     <div class="client-box-large" style="background:none;display:flex;align-items:center;justify-content:center;padding:0;"><img src="https://i.postimg.cc/Wb52nS32/24.png" alt="client9" style="max-width:90%;max-height:90%;object-fit:contain;"/></div>
+                     <div class="client-box-large" style="background:none;display:flex;align-items:center;justify-content:center;padding:0;"><img src="https://i.postimg.cc/kG1Yz2zp/26.png" alt="client10" style="max-width:90%;max-height:90%;object-fit:contain;"/></div>
+                     <div class="client-box-large" style="background:none;display:flex;align-items:center;justify-content:center;padding:0;"><img src="https://i.postimg.cc/4NtJCtXc/27.png" alt="client11" style="max-width:90%;max-height:90%;object-fit:contain;"/></div>
+                     <div class="client-box-large" style="background:none;display:flex;align-items:center;justify-content:center;padding:0;"><img src="https://i.postimg.cc/DzYV4y2F/28.png" alt="client12" style="max-width:90%;max-height:90%;object-fit:contain;"/></div>
+                     <div class="client-box-large" style="background:none;display:flex;align-items:center;justify-content:center;padding:0;"><img src="https://i.postimg.cc/wMXb26d1/25.png" alt="client13" style="max-width:90%;max-height:90%;object-fit:contain;"/></div>
+                   </div>
+                 </div>
+              </div>
             </div>
         </div>
     </section>
@@ -853,33 +837,7 @@
                                 <p class="text-gray-400">175, Jungheung-ro, Sangdang-gu, Cheongju-si, Chungcheongbuk-do, Republic of Korea</p>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="mt-12">
-                        <h4 class="font-bold mb-4">Follow Us</h4>
-                        <div class="flex space-x-4">
-                            <a href="#" class="text-gray-400 hover:text-accent transition">
-                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/>
-                                </svg>
-                            </a>
-                            <a href="#" class="text-gray-400 hover:text-accent transition">
-                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-                                </svg>
-                            </a>
-                            <a href="#" class="text-gray-400 hover:text-accent transition">
-                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2 16h-2v-6h2v6zm-1-6.891c-.607 0-1.1-.496-1.1-1.109 0-.612.492-1.109 1.1-1.109s1.1.497 1.1 1.109c0 .613-.493 1.109-1.1 1.109zm8 6.891h-1.998v-2.861c0-1.881-2.002-1.722-2.002 0v2.861h-2v-6h2v1.093c.872-1.616 4-1.736 4 1.548v3.359z"/>
-                                </svg>
-                            </a>
-                            <a href="#" class="text-gray-400 hover:text-accent transition">
-                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
+                    </div>                    
                 </div>
             </div>
         </div>
